@@ -15,19 +15,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn package -DskipTests'
+                sh 'mvn package -DskipTests'
             }
         }
 
         stage('Run Application') {
             steps {
-                bat 'java -jar target/app-0.0.1-SNAPSHOT.jar'
+                sh 'java -jar target/app-0.0.1-SNAPSHOT.jar'
             }
         }
     }
